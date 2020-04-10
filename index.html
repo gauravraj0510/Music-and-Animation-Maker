@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music Maker</title>
+	<script type="text/javascript" src="paper-full.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.js"></script>
+	<script src="musicMaker.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b0213433d6.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="musicMaker.css">
+
+	<script type="text/paperscript" canvas="myCanvas">
+	    var keyData = assignArray();
+		var circles = [];
+
+		function onKeyDown(event) {
+			if(keyData[event.key]){
+				var maxPoint = new Point(view.size.width*0.6, view.size.height*0.6);
+				var randomPoint = Point.random();
+				var point = maxPoint * randomPoint;
+				var newCircle = new Path.Circle(point, 500)
+				newCircle.fillColor = keyData[event.key].color;
+				keyData[event.key].sound.play();
+				circles.push(newCircle);
+			}
+		}
+
+		function onFrame(event){
+			for(var i = 0; i < circles.length; i++){
+				circles[i].fillColor.hue += 1;
+				circles[i].scale(.9);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1><i class="fas fa-palette"> </i><i class="fas fa-music"></i> MUSIC & ANIMATION MAKER <i class="fas fa-music"> <i class="fas fa-palette"></i></i></h1>	
+	<canvas id="myCanvas" resize></canvas>
+	<h2>Press alphabet keys (a to z) for different sounds and animations</h2>
+	<h2 id="author"><i class="fas fa-user-edit"></i> by GAURAV RAJ</h2>
+</body>
+</html>
