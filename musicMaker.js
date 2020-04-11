@@ -4,7 +4,7 @@ function assignArray()
 	var keyData = {
 		q: {
 			sound: new Howl({
-			  urls: ['sounds/bubbles.mp3']
+			  urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/1147877/tom.wav']
 			}),
 			color: '#1abc9c'
 		},
@@ -161,3 +161,4 @@ function assignArray()
 	}
 	return keyData;
 }
+
