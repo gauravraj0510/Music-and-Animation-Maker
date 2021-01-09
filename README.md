@@ -3,3 +3,5 @@ A practice project to learn paper.js for animations and and howler.js for handli
 
 Press any alphabet keys to produce different sounds and animations.
 Use your creativity to create some sick beats
+
+<img src='images/1.png' width='700' >
